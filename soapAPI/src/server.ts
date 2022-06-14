@@ -1,7 +1,7 @@
 import { Server, Request, ResponseToolkit } from "@hapi/hapi";
 import { Config } from "./environmentvariables/config";
-import { datas } from "./routes";
-import { soapcall } from './soap'
+import { Routes } from "./routes";
+import { soapCall } from './soap'
 
 const init = async () => {
     const server: Server = new Server({
@@ -10,10 +10,10 @@ const init = async () => {
     });
 
 
-    soapcall
+    soapCall
     await server.start();
     console.log('Server running on 8000');
-    server.route(datas)
+    server.route(Routes)
 };
 
 process.on('unhandledRejection', (err) => {

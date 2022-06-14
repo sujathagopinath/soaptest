@@ -1,10 +1,10 @@
 import { Request, ResponseToolkit } from '@hapi/hapi'
 import { userRequest } from '../interfaces'
-import { soapcall } from '../soap'
+import { soapCall } from '../soap'
 class personDetails {
 
-    async getdata(request: Request, h: ResponseToolkit) {
-        const client = await soapcall
+    async getData(request: Request, h: ResponseToolkit) {
+        const client = await soapCall
         const cornerPointdata = new Promise((resolve, reject) => {
             client.CornerPoints((err: any, data: any) => {
                 if (err)
@@ -16,8 +16,8 @@ class personDetails {
         return cornerPointdata
     }
 
-    async postdata(request: userRequest, h: ResponseToolkit) {
-        const client = await soapcall
+    async postData(request: userRequest, h: ResponseToolkit) {
+        const client = await soapCall
         const gmlTimeSeries = new Promise((resolve, reject) => {
             client.GmlTimeSeries(request.payload, (err: any, data: any) => {
                 console.log(request.payload)

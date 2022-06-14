@@ -1,6 +1,6 @@
 import * as soap from 'soap'
 
-export const soapcall: any = new Promise((resolve, reject) => {
+export const soapCall: any = new Promise((resolve, reject) => {
     soap.createClient(__dirname + '/../' + '/src/weather.wsdl', (err: any, client: any) => {
         if (err) {
             reject(err)

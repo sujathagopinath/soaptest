@@ -1,13 +1,13 @@
 import { Details } from "../controllers/index"
-export const datas = [
+export const Routes = [
     {
         method: 'GET',
         path: '/getdata',
-        handler: Details.getdata
+        handler: Details.getData
     },
     {
         method: 'POST',
         path: '/postdata',
-        handler: Details.postdata
+        handler: Details.postData
     }
 ]
