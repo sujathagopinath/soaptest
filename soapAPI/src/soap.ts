@@ -11,10 +11,3 @@ export const soapCall: any = new Promise((resolve, reject) => {
     })
 })
 
-
-
-
-
-
-
-
