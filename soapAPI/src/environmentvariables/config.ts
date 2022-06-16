@@ -25,4 +25,3 @@ export const Config = convict({
 
 var env = Config.get('env');
 Config.loadFile('./src/environmentvariables/' + env + '.json');
-Config.validate({ allowed: 'strict' });

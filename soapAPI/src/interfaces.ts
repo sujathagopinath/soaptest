@@ -12,3 +12,14 @@ export interface userRequest extends Hapi.Request {
     }
 }
 
+export interface LatLonListdataRequest extends Hapi.Request {
+    payload: {
+        listLatLon: String,
+        startDate: Date,
+        numDays: Number,
+        Unit: String,
+        format: String
+
+    }
+}
+
