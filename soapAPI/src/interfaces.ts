@@ -1,6 +1,6 @@
-import * as Hapi from '@hapi/hapi'
+import { Request } from "@hapi/hapi";
 
-export interface userRequest extends Hapi.Request {
+export interface ITimeSeriesData extends Request {
     payload: {
         listLatLon: String,
         startTime: Date,
@@ -11,15 +11,13 @@ export interface userRequest extends Hapi.Request {
 
     }
 }
-
-export interface LatLonListdataRequest extends Hapi.Request {
+export interface ILatLonListdataRequest extends Request {
     payload: {
         listLatLon: String,
         startDate: Date,
         numDays: Number,
         Unit: String,
         format: String
-
     }
 }
 

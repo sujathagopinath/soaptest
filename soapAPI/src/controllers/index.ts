@@ -1,21 +1,25 @@
 import { Request, ResponseToolkit } from "@hapi/hapi";
-import { userRequest, LatLonListdataRequest } from "../interfaces";
+import { ITimeSeriesData, ILatLonListdataRequest } from "../interfaces";
 import { soapCall } from "../soap";
 
 class personDetails {
-    async getData(request: Request, h: ResponseToolkit) {
+    async cornerPointData(request: Request, h: ResponseToolkit) {
         const client = await soapCall()
-        return await client.CornerPointsAsync()
+        return await client.cornerPointsAsync()
     }
 
-    async postData(request: userRequest, h: ResponseToolkit) {
+    async timeSeriesData(request: ITimeSeriesData, h: ResponseToolkit) {
         const client = await soapCall()
-        return await client.GmlTimeSeriesAsync(request.payload)
+        let data = await client.GmlTimeSeriesAsync(request.payload)
+        const results = JSON.stringify(data)
+        return results
     }
 
-    async ndfdgenByDayLatLonListData(request: LatLonListdataRequest, h: ResponseToolkit) {
+    async latLonListData(request: ILatLonListdataRequest, h: ResponseToolkit) {
         const client = await soapCall()
-        return await client.NDFDgenByDayLatLonListAsync(request.payload)
+        let data = await (client.NDFDgenByDayLatLonListAsync(request.payload))
+        const results = JSON.stringify(data)
+        return results
     }
 }
 
