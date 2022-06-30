@@ -7,7 +7,6 @@ const init = async () => {
         host: Config.get('hapi').host,
         port: Config.get('hapi').port
     });
-
     await server.start();
     console.log('Server running on 8000');
     server.route(Routes)

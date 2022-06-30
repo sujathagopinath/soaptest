@@ -1,26 +1,37 @@
 import { Request, ResponseToolkit } from "@hapi/hapi";
-import { ITimeSeriesData, ILatLonListdataRequest } from "../interfaces";
-import { soapCall } from "../soap";
+import { IOperations } from "../interfaces";
+import { aOp } from "../services";
 
-class personDetails {
-    async cornerPointData(request: Request, h: ResponseToolkit) {
-        const client = await soapCall()
-        return await client.cornerPointsAsync()
-    }
-
-    async timeSeriesData(request: ITimeSeriesData, h: ResponseToolkit) {
-        const client = await soapCall()
-        let data = await client.GmlTimeSeriesAsync(request.payload)
-        const results = JSON.stringify(data)
-        return results
-    }
-
-    async latLonListData(request: ILatLonListdataRequest, h: ResponseToolkit) {
-        const client = await soapCall()
-        let data = await (client.NDFDgenByDayLatLonListAsync(request.payload))
-        const results = JSON.stringify(data)
-        return results
-    }
+const parseString = (result: any) => {
+    return JSON.parse(JSON.stringify(result))
 }
 
-export const Details = new personDetails();
+class arthimeticOperation {
+    async Addition(request: IOperations, h: ResponseToolkit) {
+        const client = await aOp.addData(request)
+        return parseString(client[0])
+    }
+
+    async Subtraction(request: IOperations, h: ResponseToolkit) {
+        const client = await aOp.subData(request)
+        return parseString(client[0])
+
+    }
+
+    async Multiply(request: IOperations, h: ResponseToolkit) {
+        const client = await aOp.mulData(request)
+        return parseString(client[0])        
+    }
+
+    async Divide(request: IOperations, h: ResponseToolkit) {
+        const client = await aOp.divData(request)
+        return parseString(client[0])
+    }
+    // async setPoints(request: Request, h: ResponseToolkit) {
+    //     const client = await aOp.setEndpointsUrl()
+    //     console.log(client)
+    // }
+
+}
+
+export const Details = new arthimeticOperation();

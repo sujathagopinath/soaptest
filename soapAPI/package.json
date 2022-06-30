@@ -5,10 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
+    "@types/xml2js": "^0.4.11",
     "axios": "^0.27.2",
     "convict": "^6.2.3",
+    "jest": "^28.1.2",
     "joi": "^17.6.0",
-    "soap": "^0.44.0"
+    "soap": "^0.44.0",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@types/convict": "^6.1.1"

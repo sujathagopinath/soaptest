@@ -3,5 +3,8 @@
      "hapi":{
         "host":"localhost",
         "port":8000
+    },
+    "url":{
+        "endpoint_url":"https://localhost:8000/calculator.asmx"
     }
 }

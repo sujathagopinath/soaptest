@@ -20,6 +20,14 @@ export const Config = convict({
             default: 1000
         }
     },
+    url: {
+        endpoint_url: {
+            doc: 'setEndpointurl',
+            format: String,
+            default: 'https://localhost:8000/calculator.asmx',
+        }
+
+    }
 
 });
 
